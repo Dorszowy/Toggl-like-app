@@ -1,4 +1,5 @@
 'use client';
+/* eslint-disable react/no-unescaped-entities */
 
 import Link from 'next/link';
 import GoToTimer from './components/buttons/go-to-timer-button/go-to-timer-button';
@@ -11,11 +12,6 @@ const Home = () => {
         <GoToTimer />
       </Link>
     </Container>
-
-    // <Link style={{ fontSize: '75px' }} href="/time-tracker">
-    //   fancy <span style={{ color: 'red', fontSize: '75px' }}>Go To Timer</span> Link which was well coded and
-    //   beautifully styled
-    // </Link>
   );
 };
 
