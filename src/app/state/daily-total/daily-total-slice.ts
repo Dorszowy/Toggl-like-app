@@ -6,8 +6,6 @@ interface DailyTotalState {
 
 const initialState: DailyTotalState = {
   value: 0,
-  //   value: 85442123,
-  //   value: moment.duration(50000).asMilliseconds(),
 };
 
 const dailyTotalSlice = createSlice({
