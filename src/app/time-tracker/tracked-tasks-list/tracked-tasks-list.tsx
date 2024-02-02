@@ -1,5 +1,6 @@
 import React from 'react';
 import { useSelector } from 'react-redux';
+import _ from 'lodash';
 import DayDivider from './day-divider/day-divider';
 import TrackedTask from './tracked-task/tracked-task';
 import { Container, SingleDayWrapper } from './tracked-tasks-list.styles';
@@ -13,7 +14,7 @@ const TrackedTasksList = () => {
     return new Date(b.startTime).valueOf() - new Date(a.startTime).valueOf();
   });
 
-  const groupByDay = Object.groupBy(entryListSortedByDate, ({ dayToGroupBy }) => dayToGroupBy);
+  const groupByDay = _.groupBy(entryListSortedByDate, ({ dayToGroupBy }) => dayToGroupBy);
 
   const groupedEntries = Object.entries(groupByDay).map(([date, items]) => ({
     date,
