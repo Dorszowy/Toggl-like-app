@@ -21,9 +21,6 @@ const TrackedTasksList = () => {
     totalDuration: items?.reduce((total, item) => total + item.duration, 0) ?? 0,
   }));
 
-  console.log(groupedEntries);
-  console.log(Object.keys(groupByDay));
-
   return (
     <Container>
       {groupedEntries.map(({ date, items, totalDuration }) => (

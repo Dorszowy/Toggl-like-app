@@ -19,32 +19,33 @@ const Modal: React.FC<ModalProps> = ({ isOpen, setIsOpen, item, startTime, endTi
   };
 
   const handleOverlayClick = (e: React.MouseEvent<HTMLDivElement>) => {
-    e.stopPropagation(); // Zatrzymaj propagację kliknięcia wewnątrz modala
+    e.stopPropagation();
   };
 
-  return isOpen
-    ? ReactDOM.createPortal(
-        <ModalOverlay onClick={handleOverlayClick}>
-          <ModalContainer>
-            <Title>Task Title: {item.title || 'No title'}</Title>
-            <Text>
-              Start Time: <Span>{startTime}</Span>
-            </Text>
-            <Text>
-              End Time: <Span>{endTime}</Span>
-            </Text>
-            <Text>
-              Duration: <Span>{moment.utc(item.duration).format('HH:mm:ss')}</Span>
-            </Text>
-            <Text>
-              Time of Creation: <Span>{timeOfCreation}</Span>
-            </Text>
-            <Button onClick={handleClose}>Close</Button>
-          </ModalContainer>
-        </ModalOverlay>,
-        document.body
-      )
-    : null;
+  return (
+    isOpen &&
+    ReactDOM.createPortal(
+      <ModalOverlay onClick={handleOverlayClick}>
+        <ModalContainer>
+          <Title>Task Title: {item.title || 'No title'}</Title>
+          <Text>
+            Start Time: <Span>{startTime}</Span>
+          </Text>
+          <Text>
+            End Time: <Span>{endTime}</Span>
+          </Text>
+          <Text>
+            Duration: <Span>{moment.utc(item.duration).format('HH:mm:ss')}</Span>
+          </Text>
+          <Text>
+            Time of Creation: <Span>{timeOfCreation}</Span>
+          </Text>
+          <Button onClick={handleClose}>Close</Button>
+        </ModalContainer>
+      </ModalOverlay>,
+      document.body
+    )
+  );
 };
 
 export default Modal;
